@@ -26,10 +26,11 @@ main(){
 
     int esc = 1, cont = 0; 
     while(esc >=1 && esc<=4){
-    cout<<"Para cadastrar digite: 1";
-    cout<<"Para Atualizar digite: 2";
-    cout<<"Para Calcular digite: 3";
-    cout<<"Para Exibir digite: 4";
+    cout<<"Para cadastrar digite: 1"<< endl; 
+    cout<<"Para Atualizar digite: 2"<< endl;
+    cout<<"Para Calcular digite: 3"<< endl;
+    cout<<"Para Exibir digite: 4"<< endl;
+    cout<<"Para sair digite 0"<< endl;
     cin>>esc;
         switch(esc){
             case 1:
@@ -48,6 +49,7 @@ main(){
                 cin>> qtde;
                 cont ++;
                 atualizar(cod, qtde, cont);
+            break;
         };
     }
 }
@@ -55,7 +57,7 @@ main(){
 void cadastrar(string &nome, int &codigo, float &preco, int &qtde){
 cout<<"Digite o nome do produto: ";
                 cin>> nome;
-                cout<<"Digite codigo do priduto: ";
+                cout<<"Digite codigo do produto: ";
                 cin>> codigo;
                 cout<<"Digite o preco: ";
                 cin>> preco;
@@ -68,7 +70,7 @@ void atualizar(int cod, int qtde, int cont){
         if(vetor[indice].codigo == cod){
             existe = true;
         }
-    }
+    
     if(existe == false){
         cout<<"Nao existe esse produto"; //msg de erro de produto inexistete
     }
@@ -77,6 +79,7 @@ void atualizar(int cod, int qtde, int cont){
             cout<<"Qtde negativa";
         }else{
             vetor[cod].qtde = qtde; //add estoque
+            }
         }
     }
 }
