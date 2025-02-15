@@ -47,7 +47,7 @@ main(){
                 cout<<"Digite a quatidade do produto (use - para remover): ";
                 cin>> qtde;
                 cont ++;
-                atuzlizar(cod, qtde, cont);
+                atualizar(cod, qtde, cont);
                 break;
             case 3:
 
@@ -79,7 +79,7 @@ void atualizar(int cod, int qtde, int cont){
         if(vetor[cod] + qtde < 0){ //msg para quantidade negativa
             cout<<"Qtde negativa";
         }else{
-            vetor[cod].estoque = qtde; //add estoque
+            vetor[cod].qtde = qtde; //add estoque
         }
     }
 }
