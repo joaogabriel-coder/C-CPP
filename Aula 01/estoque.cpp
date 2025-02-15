@@ -5,7 +5,7 @@
 using namespace std;
 
 void cadastrar(string &nome, int &codigo, float &preco, int &qtde);
-void atualizar(int cod, int qtde);
+void atualizar(int cod, int qtde, int cont);
 float calc();
 void exibir();
 
@@ -48,10 +48,7 @@ main(){
                 cin>> qtde;
                 cont ++;
                 atualizar(cod, qtde, cont);
-                break;
-            case 3:
-
-        }
+        };
     }
 }
 
@@ -60,7 +57,7 @@ cout<<"Digite o nome do produto: ";
                 cin>> nome;
                 cout<<"Digite codigo do priduto: ";
                 cin>> codigo;
-                cout<<"Digite o proco: ";
+                cout<<"Digite o preco: ";
                 cin>> preco;
                 cout<<"Digite a quantidade: ";
                 cin>> qtde;
@@ -76,7 +73,7 @@ void atualizar(int cod, int qtde, int cont){
         cout<<"Nao existe esse produto"; //msg de erro de produto inexistete
     }
     else{
-        if(vetor[cod] + qtde < 0){ //msg para quantidade negativa
+        if(vetor[cod].qtde + qtde < 0){ //msg para quantidade negativa
             cout<<"Qtde negativa";
         }else{
             vetor[cod].qtde = qtde; //add estoque
