@@ -6,8 +6,8 @@ using namespace std;
 
 void cadastrar(string &nome, int &codigo, float &preco, int &qtde);
 void atualizar(int cod, int qtde, int cont);
-float calc();
-void exibir();
+float calc(int cod, int qtde, float preco, int cont);
+void exibir(string &nome, int &codigo, float &preco, int &qtde);
 
 struct produto{
     string nome;
@@ -50,6 +50,12 @@ main(){
                 cont ++;
                 atualizar(cod, qtde, cont);
             break;
+            case 3:
+                calc(cod, qtde, preco, cont);
+            break;
+            case 4:
+                exibir(nome, codigo, preco, qtde);
+            break;
         };
     }
 }
@@ -82,4 +88,24 @@ void atualizar(int cod, int qtde, int cont){
             }
         }
     }
+}
+float calc(int cod, int qtde, float preco, int cont){
+    float res;
+    bool existe = false, indice;
+    for(indice = 0; indice < cont; indice++){ //tetsou pra ver se existe
+        if(vetor[indice].codigo == cod){
+            existe = true;
+        }
+    }
+    for (indice = 0; indice < cont; indice++){
+        res += vetor[indice].preco;
+    }
+    cout<<"Valor total do estoque: "<<res<< endl;
+    return res;
+}
+void exibir(string &nome, int &codigo, float &preco, int &qtde){
+    cout<<"Nome do produto: "<<nome<<endl;
+    cout<<"Codigo do produto: "<<codigo<<endl;
+    cout<<"Preco do produto: "<<preco<<endl;
+    cout<<" Quantidade do produto: "<<qtde<<endl;
 }
